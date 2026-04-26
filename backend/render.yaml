@@ -1,0 +1,4 @@
+web: npm start
+
+env:
+  - PORT: 3001
