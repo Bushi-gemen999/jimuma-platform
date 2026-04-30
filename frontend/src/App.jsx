@@ -9,8 +9,8 @@ import ProjectDetail from './pages/ProjectDetail.jsx';
 import Editor from './pages/Editor.jsx';
 import Profile from './pages/Profile.jsx';
 
-// 全局axios配置
-axios.defaults.baseURL = 'http://localhost:3001';
+// 全局axios配置（生产环境用 VITE_API_BASE_URL，回退到本地开发地址）
+axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001';
 axios.interceptors.request.use(config => {
   const token = localStorage.getItem('token');
   if (token) config.headers.Authorization = `Bearer ${token}`;

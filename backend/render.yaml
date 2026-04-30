@@ -1,4 +1,15 @@
-web: npm start
-
-env:
-  - PORT: 3001
+services:
+  - type: web
+    name: jimuma-backend
+    env: node
+    region: oregon
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 3001
+      - key: JWT_SECRET
+        sync: false
+      - key: AI_API_KEY
+        sync: false
